@@ -1,0 +1,48 @@
+﻿@model List<WebApp_Manha.Entidades.Produtos>
+
+<div class="card">
+
+    <div class="card-header">
+        Lista de Produtos
+    </div>
+
+    <div class="card-body">
+        <table class="table table-spriped">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Descrição do Produto
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                    <th>Imagem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in Model)
+                {
+                    <tr>
+                        <td>@produto.Id</td>
+                        <td>@produto.Descricao</td>
+                        <td>@produto.Valor</td>
+                        <td>@produto.Categoria.Nome</td>
+                        <td>
+                           
+                            <img src="/upload/@produto.CaminhoImagem" width="50" height="50" />    
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

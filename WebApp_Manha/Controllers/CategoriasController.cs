@@ -13,9 +13,17 @@ namespace WebApp_Manha.Controllers
             contexto = _db;
         }
 
-        public IActionResult Lista()
+        public IActionResult Lista(string busca)
         {
-            return View( contexto.Categorias.ToList() );
+            if( string.IsNullOrEmpty(busca) )
+            {
+                return View( contexto.Categorias.ToList() );
+            }
+            else
+            {
+                return View( contexto.Categorias.Where( meuObjeto => meuObjeto.Nome.Contains(busca) ).ToList() );
+            }
+            
         }
 
         public IActionResult Cadastro()
